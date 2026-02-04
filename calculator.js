@@ -16,3 +16,9 @@ export function divide(a,b){
     }
     return (a/b).toFixed(2);
 }
+
+
+
+/*
+  module.exports={sum,multiply,subtract,divide};
+*/

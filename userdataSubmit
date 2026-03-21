@@ -1,0 +1,24 @@
+function userdataSubmit(req, resp) {
+  let body = "";
+
+  req.on("data", chunk => {
+    body += chunk;
+  });
+
+  req.on("end", () => {
+    const data = new URLSearchParams(body);
+
+    const name = data.get("name");
+    const password = data.get("password");
+
+    resp.write(`
+      <h1>Data submitted successfully</h1>
+      <p>Name: ${name}</p>
+      <p>Password: ${password}</p>
+      <a href="/">Go Back</a>
+    `);
+    resp.end();
+  });
+}
+
+module.exports = userdataSubmit;
